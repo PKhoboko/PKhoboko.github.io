@@ -6,17 +6,77 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<style>
+			/* ------------------------------------------- */
+			/* Modern Animation & Flow Styles */
+			/* ------------------------------------------- */
+
+			/* Initial states for animation */
+			.animate-on-scroll {
+				opacity: 0;
+				transition: all 1s ease-out; /* Smooth transition for all properties */
+			}
+
+			/* Fade-in effect */
+			.fade-in {
+				opacity: 0;
+				transform: translateY(15px);
+			}
+
+			/* Slide-up effect (for content blocks) */
+			.slide-up {
+				opacity: 0;
+				transform: translateY(30px);
+			}
+
+			/* Active state (when visible) */
+			.animate-on-scroll.is-visible,
+			.is-visible {
+				opacity: 1;
+				transform: none; /* Reset transformation */
+			}
+
+			/* Staggered delay for header elements */
+			#hero header h2 {
+				transition-delay: 0.2s;
+			}
+			#hero header p {
+				transition-delay: 0.4s;
+			}
+			#hero p:nth-of-type(1) {
+				transition-delay: 0.6s;
+			}
+			#hero p:nth-of-type(2) {
+				transition-delay: 0.8s;
+			}
+			#hero .actions {
+				transition-delay: 1.0s;
+			}
+
+			/* Contact Button Grouping Style */
 			#hero .contact-actions {
 				display: flex;
-				gap: 15px; /* Spacing between buttons */
-				justify-content: center; /* Center the buttons */
-				margin-top: 25px; /* Increase space above buttons */
+				gap: 15px; 
+				justify-content: center; 
+				margin-top: 25px; 
+				max-width: 600px; /* Constrain width for centering */
+				margin-left: auto;
+				margin-right: auto;
 			}
 			#hero .contact-actions .button {
-				flex-grow: 1; /* Allow buttons to grow and fill space */
-				max-width: 200px; /* Optional: Limit maximum width for a cleaner look */
+				flex-grow: 1; 
+				max-width: 200px; 
 				text-align: center;
-				padding: 0.8em 1.5em; /* Adjust padding for better look */
+				padding: 0.8em 1.5em; 
+			}
+			
+			/* Tech Stack Highlight Styles */
+			.tech-stack-highlight {
+				font-weight: bold;
+				color: #4CAF50; /* A green color for modern tech emphasis */
+				padding: 2px 4px;
+				border-radius: 4px;
+				display: inline-block;
+				margin: 3px 0;
 			}
 		</style>
 	</head>
@@ -28,7 +88,7 @@
 				<div id="header" class="container">
 
 					<h1 id="logo">
-						<a href="https://www.linkedin.com/in/pitso-khoboko-5a1844199/">Pitso Khoboko</a>
+						<a href="https://www.linkedin.com/in/pitso-khoboko/">Pitso Khoboko</a>
 					</h1>
 
 					<nav id="nav">
@@ -41,26 +101,42 @@
 				</div>
 
 				<section id="hero" class="container">
-					<header>
+					<header class="animate-on-scroll fade-in">
 						<h2>👋 **Welcome! I'm Pitso Khoboko**</h2>
 						<p>
 							A dedicated **Software Developer** and Geo-Informatics specialist.
 						</p>
 					</header>
 
-					<p>
-						Academically, I hold an **Honours** degree and an **MSc in Geo-Informatics, achieved *Cum Laude***. My expertise lies in **full-stack software development**, creating clean, scalable web and mobile applications.
-						<br><br>
-						I am currently contributing to the PSG Financial Services, while also driving innovation through my company, **Neria Solutions**. At Neria Solutions, I focus on building robust, modern software systems tailored to client needs.
-						<br><br>
-						Beyond the screen, I enjoy **hiking** ⛰️, exploring the diverse landscapes of South Africa (having visited all provinces except the Western Cape), and playing **soccer** ⚽.
-					</p>
+					<div class="animate-on-scroll slide-up">
+						<p>
+							Academically, I hold an **Honours** degree and an **MSc in Geo-Informatics, achieved *Cum Laude***. My core focus is on building robust and scalable software solutions.
+						</p>
+						
+						<h3>💻 Core Technical Expertise:</h3>
+						<p>
+							My experience spans the full software development lifecycle, specializing in modern architectural patterns like **Microservices**. My key technologies include:
+							<br>
+							<span class="tech-stack-highlight">C# (.NET Framework)</span>, <span class="tech-stack-highlight">SQL</span>, <span class="tech-stack-highlight">Python</span>, and extensive work with geospatial systems like <span class="tech-stack-highlight">ArcGIS</span>.
+							For the front-end, I have expertise in <span class="tech-stack-highlight">Angular</span> and <span class="tech-stack-highlight">React</span>.
+							I am also proficient in **Mobile Development** using <span class="tech-stack-highlight">React Native</span>.
+						</p>
+					</div>
+
+					<div class="animate-on-scroll slide-up" style="transition-delay: 1.2s;">
+						<p>
+							I am currently contributing to the PSG Financial Services, while also driving innovation through my company, **<a href="www.neriasolutions.tech">Neria Solutions</a>**, where I focus on delivering cutting-edge software systems.
+						</p>
+						<p>
+							Beyond the screen, I enjoy **hiking** ⛰️, exploring the diverse landscapes of South Africa, and playing **soccer** ⚽.
+						</p>
+					</div>
 					
-					<ul class="actions">
+					<ul class="actions animate-on-scroll slide-up" style="transition-delay: 1.4s;">
 						<li><a href="https://github.com/PKhoboko/Test" class="button primary">Pro Tools Repository</a></li>
 					</ul>
 
-					<ul class="actions contact-actions">
+					<ul class="actions contact-actions animate-on-scroll slide-up" style="transition-delay: 1.6s;">
 						<li>
 							<a href="mailto:pwkhoboko@gmail.com" class="button">
 								📧 Email Me
@@ -81,7 +157,7 @@
 				</section>
 			</div>
 
-			<div id="footer-wrapper">
+			<div id="footer-wrapper" class="animate-on-scroll slide-up">
 				<div id="footer" class="container">
 					<header class="major">
 						<h2>Thank You</h2>
@@ -115,8 +191,41 @@
 		<script src="assets/js/breakpoints.min.js"></script>
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
+		
+		<script>
+			// Function to check if element is in viewport
+			function checkVisibility() {
+				var elements = document.querySelectorAll('.animate-on-scroll');
+				
+				elements.forEach(function(el) {
+					var rect = el.getBoundingClientRect();
+					
+					// Define what percentage of the element needs to be visible
+					var viewHeight = window.innerHeight || document.documentElement.clientHeight;
+					var triggerPoint = viewHeight * 0.85; // Trigger when 85% of viewport is scrolled
+					
+					if (rect.top <= triggerPoint && rect.bottom >= 0) {
+						el.classList.add('is-visible');
+					}
+					// Optional: Keep the class if you don't want the animation to repeat on scroll up
+					// else {
+					// 	el.classList.remove('is-visible');
+					// }
+				});
+			}
+
+			// Run on page load and on scroll
+			window.addEventListener('scroll', checkVisibility);
+			window.addEventListener('load', function() {
+				// Initial check after everything is loaded
+				checkVisibility(); 
+				
+				// A small delay for hero section elements to animate immediately on load
+				document.querySelectorAll('#hero .animate-on-scroll').forEach(function(el) {
+					el.classList.add('is-visible');
+				});
+			});
+		</script>
 
 	</body>
 </html>
-
-
